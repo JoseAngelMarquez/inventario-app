@@ -1,16 +1,37 @@
-import { Button, ButtonGroup } from "@chakra-ui/react"
+import React, { useState } from 'react';
+import InputField from './components/InputField';
+import { Button, Box, Heading } from '@chakra-ui/react';
 
 function App() {
-  return (
-    <>
-      <Button colorScheme="blue">Click me</Button>
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-      <ButtonGroup spacing="6" mt="4">
-        <Button colorScheme="teal">Save</Button>
-        <Button colorScheme="red">Cancel</Button>
-      </ButtonGroup>
-    </>
-  )
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Usuario: ${username}\nPassword: ${password}`);
+  };
+
+  return (
+    <Box maxW="400px" mx="auto" mt="100px" p="6" boxShadow="md" borderRadius="md">
+      <Heading mb={6} textAlign="center">Login</Heading>
+      <form onSubmit={handleSubmit}>
+        <InputField 
+          placeholder="Nombre de usuario" 
+          value={username} 
+          onChange={(e) => setUsername(e.target.value)} 
+        />
+        <InputField 
+          placeholder="Contraseña" 
+          type="password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+        />
+        <Button colorScheme="blue" type="submit" width="full" mt={4}>
+          Entrar
+        </Button>
+      </form>
+    </Box>
+  );
 }
 
-export default App
+export default App;

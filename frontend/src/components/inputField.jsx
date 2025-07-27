@@ -1,10 +1,16 @@
-import { Box } from "@chakra-ui/react"
+import React from 'react';
+import { Input } from '@chakra-ui/react';
 
-const Demo = () => {
+const InputField = ({ placeholder, type = "text", value, onChange }) => {
   return (
-    <Box background="tomato" width="100%" padding="4" color="white">
-      This is the Box
-    </Box>
-  )
-}
- export default Demo;
+    <Input 
+      placeholder={placeholder} 
+      type={type} 
+      value={value} 
+      onChange={onChange} 
+      mb={4}
+    />
+  );
+};
+
+export default InputField;
