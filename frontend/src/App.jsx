@@ -1,36 +1,19 @@
-import React, { useState } from 'react';
-import InputField from './components/InputField';
-import { Button, Box, Heading } from '@chakra-ui/react';
+// src/App.jsx
+import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 function App() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Usuario: ${username}\nPassword: ${password}`);
-  };
-
   return (
-    <Box maxW="400px" mx="auto" mt="100px" p="6" boxShadow="md" borderRadius="md">
-      <Heading mb={6} textAlign="center">Login</Heading>
-      <form onSubmit={handleSubmit}>
-        <InputField 
-          placeholder="Nombre de usuario" 
-          value={username} 
-          onChange={(e) => setUsername(e.target.value)} 
-        />
-        <InputField 
-          placeholder="Contraseña" 
-          type="password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-        />
-        <Button colorScheme="blue" type="submit" width="full" mt={4}>
-          Entrar
-        </Button>
-      </form>
-    </Box>
+    <ChakraProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </Router>
+    </ChakraProvider>
   );
 }
 
