@@ -9,7 +9,7 @@ function Login() {
       <Box p={8} bg="white" borderRadius="md" boxShadow="md" w="sm">
         <VStack spacing={4}>
           <Heading size="lg">Iniciar Sesión</Heading>
-          <CustomInput placeholder="Correo electrónico" />
+          <CustomInput placeholder="Usuario" />
           <CustomInput placeholder="Contraseña" type="password" />
           <CustomButton>Entrar</CustomButton>
         </VStack>
